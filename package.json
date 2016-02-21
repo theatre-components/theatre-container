@@ -1,0 +1,33 @@
+{
+  "name": "theatre-container",
+  "version": "1.0.0",
+  "description": "A dependency injection container for the web",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "David Jegat <david.jegat@gmail.com>",
+  "license": "MIT",
+  "jspm": {
+    "configFile": "jspm-config.js",
+    "dependencies": {
+      "karma-systemjs": "npm:karma-systemjs@^0.11.0",
+      "ts": "github:frankwallis/plugin-typescript@^3.0.3"
+    },
+    "devDependencies": {
+      "ts-runtime": "npm:babel-runtime@^5.8.24",
+      "typescript": "npm:typescript@^1.6.2"
+    }
+  },
+  "devDependencies": {
+    "jasmine-core": "^2.4.1",
+    "jspm": "^0.16.29",
+    "karma": "^0.13.21",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-jasmine": "^0.3.7",
+    "karma-jspm": "^2.0.2",
+    "karma-mocha-reporter": "^1.2.0",
+    "karma-systemjs": "^0.11.0",
+    "typedoc": "^0.3.12"
+  }
+}
