@@ -5,7 +5,8 @@ System.config({
   typescriptOptions: {
     "module": "system",
     "noImplicitAny": true,
-    "typeCheck": "strict"
+    "typeCheck": "strict",
+    "tsconfig": true
   },
   paths: {
     "npm:*": "jspm_packages/npm/*",

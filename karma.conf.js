@@ -10,14 +10,17 @@ module.exports = function(config) {
 
 
     // list of files / patterns to load in the browser
-    files: [],
+    files: [
+      { pattern: 'tsconfig.json', served: true, included: false }
+    ],
 
     proxies: {
       '/tests/': '/base/tests/',
       '/lib/': '/base/lib/',
       '/jspm_packages/': '/base/jspm_packages/',
       '/node_modules/': '/base/node_modules/',
-      '/typings/': '/base/typings/'
+      '/typings/': '/base/typings/',
+      '/tsconfig.json': '/base/tsconfig.json'
     },
 
 
@@ -62,7 +65,8 @@ module.exports = function(config) {
       serveFiles: [
         "lib/**/*.ts",
         "jspm_packages/**/*.js",
-        "node_modules/**/*.js"
+        "node_modules/**/*.js",
+        "tsconfig.json"
       ],
       loadFiles: [
         "tests/**/*-spec.ts"

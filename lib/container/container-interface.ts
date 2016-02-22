@@ -6,7 +6,7 @@ import DefinitionCollectionInterface from 'theatre/container/definition/definiti
  *
  * @author David Jegat <david.jegat@gmail.com>
  */
-export default interface ContainerInterface
+interface ContainerInterface
 {
     /**
      * Register a new member definition inside the container.
@@ -29,3 +29,5 @@ export default interface ContainerInterface
      */
     find(tag: string): DefinitionCollectionInterface;
 }
+
+export default ContainerInterface;

@@ -8,7 +8,7 @@ import ContainerInterface from 'theatre/container/container/container-interface'
  *
  * @author David Jegat <david.jegat@gmail.com>
  */
-export default interface ContainerAggregateInterface extends ContainerInterface
+interface ContainerAggregateInterface extends ContainerInterface
 {
     /**
      * Aggregate with an other container. You must give a prefix in order
@@ -32,3 +32,5 @@ export default interface ContainerAggregateInterface extends ContainerInterface
      */
     hasContainer(prefix: string): boolean;
 }
+
+export default ContainerAggregateInterface;

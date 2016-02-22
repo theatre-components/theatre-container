@@ -35,6 +35,7 @@
     "karma-jspm": "^2.0.2",
     "karma-mocha-reporter": "^1.2.0",
     "karma-systemjs": "^0.11.0",
-    "typedoc": "^0.3.12"
+    "typedoc": "^0.3.12",
+    "typings": "^0.6.8"
   }
 }
