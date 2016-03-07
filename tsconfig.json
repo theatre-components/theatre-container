@@ -5,11 +5,13 @@
         "noImplicitAny": false,
         "sourceMap": true,
         "experimentalDecorators": true,
-        "emitDecoratorMetadata": true
+        "emitDecoratorMetadata": true,
+        "outDir": "build"
     },
     "exclude": [
         "node_modules",
         "jspm_packages",
-        "typings/browser.d.ts"
+        "typings/browser.d.ts",
+        "tests"
     ]
 }

@@ -5,7 +5,9 @@ import ContainerInterface from 'theatre/container/container/container-interface'
  *
  * @author David Jegat <david.jegat@gmail.com>
  */
-export default interface AfterListenerInterface
+interface AfterListenerInterface
 {
     (name: string, value: any, container: ContainerInterface): any;
 }
+
+export default AfterListenerInterface;

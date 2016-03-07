@@ -6,7 +6,9 @@ import ContainerInterface from 'theatre/container/container/container-interface'
  *
  * @author David Jegat <david.jegat@gmail.com>
  */
-export default interface BeforeListenerInterface
+interface BeforeListenerInterface
 {
     (name: string, definition: DefinitionInterface, container: ContainerInterface): DefinitionInterface;
 }
+
+export default BeforeListenerInterface;

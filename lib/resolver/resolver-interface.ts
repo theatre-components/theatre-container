@@ -6,10 +6,12 @@ import ContainerInterface from 'theatre/container/container/container-interface'
  *
  * @author David Jegat <david.jegat@gmail.com>
  */
-export default interface ResolverInterface
+interface ResolverInterface
 {
     /**
      * Resolve a given definition, must return the resolved value.
      */
     resolve(name: string, definition: DefinitionInterface, container: ContainerInterface): any;
 }
+
+export default ResolverInterface;

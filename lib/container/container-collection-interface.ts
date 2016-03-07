@@ -5,7 +5,9 @@ import ContainerInterface from 'theatre/container/container/container-interface'
  *
  * @author David Jegat <david.jegat@gmail.com>
  */
-export default interface ContainerCollectionInterface
+interface ContainerCollectionInterface
 {
     [index: string]: ContainerInterface;
 }
+
+export default ContainerCollectionInterface;

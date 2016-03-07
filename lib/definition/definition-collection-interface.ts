@@ -5,7 +5,9 @@ import DefinitionInterface from 'theatre/container/definition/definition-interfa
  *
  * @author David Jegat <david.jegat@gmail.com>
  */
-export default interface DefinitionCollectionInterface
+interface DefinitionCollectionInterface
 {
     [index: string]: DefinitionInterface;
 }
+
+export default DefinitionCollectionInterface;

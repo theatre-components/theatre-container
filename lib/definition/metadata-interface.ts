@@ -3,7 +3,9 @@
  *
  * @author David Jegat <david.jegat@gmail.com>
  */
-export default interface MetadataInterface<T>
+interface MetadataInterface<T>
 {
     [index: string]: T;
 }
+
+export default MetadataInterface;

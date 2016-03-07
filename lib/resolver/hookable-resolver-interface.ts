@@ -7,7 +7,7 @@ import AfterListenerInterface from 'theatre/container/resolver/listener/after-li
  *
  * @author David Jegat <david.jegat@gmail.com>
  */
-export default interface HookableResolverInterface extends Resolver
+interface HookableResolverInterface extends Resolver
 {
     /**
      * Register a BeforeListenerInterface. Those listeners are launched just
@@ -21,3 +21,5 @@ export default interface HookableResolverInterface extends Resolver
      */
     after(listener: AfterListenerInterface): HookableResolverInterface;
 }
+
+export default HookableResolverInterface;

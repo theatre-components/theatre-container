@@ -5,10 +5,12 @@ import ResolverInterface from 'theatre/container/resolver/resolver-interface';
  *
  * @author David Jegat <david.jegat@gmail.com>
  */
-export default interface SupportableResolverInterface extends ResolverInterface
+interface SupportableResolverInterface extends ResolverInterface
 {
     /**
      * Notify if this resolver can resolve a given definition.
      */
     supports(definition: DefinitionInterface): boolean;
 }
+
+export default SupportableResolverInterface;

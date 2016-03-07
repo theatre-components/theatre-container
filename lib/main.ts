@@ -25,4 +25,8 @@ import ServiceResolver from 'theatre/container/resolver/service-resolver';
 export {ServiceResolver};
 
 import ContainerAggregate from 'theatre/container/container/container-aggregate';
-export {ContainerAggregate as Container};
+export {ContainerAggregate};
+
+const container = new ContainerAggregate();
+
+export default container;

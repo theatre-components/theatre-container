@@ -6,7 +6,7 @@ import MetadataInterface from 'theatre/container/definition/metadata-interface';
  *
  * @author David Jegat <david.jegat@gmail.com>
  */
-export default interface DefinitionInterface
+interface DefinitionInterface
 {
     /**
      * A subject can be a simple scalar or a service constructor.
@@ -45,3 +45,5 @@ export default interface DefinitionInterface
      */
     metadata?: MetadataInterface<T>;
 }
+
+export default DefinitionInterface;
