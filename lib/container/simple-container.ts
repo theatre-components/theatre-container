@@ -90,6 +90,26 @@ export default class SimpleContainer implements ContainerInterface
         return collection;
     }
 
+    /**
+     * {@inheritdoc}
+     */
+    getDefinition(name: string): DefinitionInterface
+    {
+        if (undefined === this.definitions[name]) {
+            throw new ContainerError(`The definition ${name} is not registered in the container. Maybe a typo ?`);
+        }
+
+        return this.definitions[name];
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    hasDefinition(name: string): boolean
+    {
+        return undefined !== this.definitions[name];
+    }
+
     get resolver(): Resolver
     {
         return this._resolver;

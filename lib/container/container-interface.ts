@@ -28,6 +28,16 @@ interface ContainerInterface
      * Retrieve definitions by tag name
      */
     find(tag: string): DefinitionCollectionInterface;
+
+    /**
+     * Retrieve a definition.
+     */
+    getDefinition(name: string): DefinitionInterface;
+
+    /**
+     * Test if a given definition exists.
+     */
+    hasDefinition(name: string): boolean;
 }
 
 export default ContainerInterface;

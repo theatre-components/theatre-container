@@ -103,6 +103,22 @@ export default class ContainerAggregate implements ContainerAggregateInterface
         return this.subContainers[prefix];
     }
 
+    /**
+     * {@inheritdoc}
+     */
+    getDefinition(name: string): DefinitionInterface
+    {
+        return this.wrappedContainer.getDefinition(name);
+    }
+
+    /**
+     * @{inheritdoc}
+     */
+    hasDefinition(name: string): DefinitionInterface
+    {
+        return this.wrappedContainer.hasDefinition(name);
+    }
+
     private recursivlyFind(
         tag: string,
         base: string,
