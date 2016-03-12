@@ -5,6 +5,8 @@
   "directories": {
     "lib": "lib"
   },
+  "format": "esm",
+  "registry": "jspm",
   "main": "main.ts",
   "scripts": {
     "test": "karma start --single-run",
@@ -14,11 +16,6 @@
   "author": "David Jegat <david.jegat@gmail.com>",
   "license": "MIT",
   "jspm": {
-    "main": "main",
-    "format": "es6",
-    "directories": {
-      "lib": "lib"
-    },
     "configFile": "jspm-config.js",
     "dependencies": {
       "ts": "github:frankwallis/plugin-typescript@^3.0.3"
