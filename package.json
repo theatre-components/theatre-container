@@ -14,12 +14,11 @@
   "author": "David Jegat <david.jegat@gmail.com>",
   "license": "MIT",
   "jspm": {
-    "jspmNodeConversion": false,
+    "main": "main",
+    "format": "es6",
     "directories": {
       "lib": "lib"
     },
-    "format": "es6",
-    "main": "main",
     "configFile": "jspm-config.js",
     "dependencies": {
       "ts": "github:frankwallis/plugin-typescript@^3.0.3"
@@ -29,7 +28,7 @@
       "typescript": "npm:typescript@^1.6.2"
     }
   },
-  "repository": "theatre-components/theatre-container"
+  "repository": "theatre-components/theatre-container",
   "devDependencies": {
     "jasmine-core": "^2.4.1",
     "jspm": "^0.16.29",
