@@ -1,6 +1,6 @@
 {
   "name": "theatre-container",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "description": "A dependency injection container for the web",
   "directories": {
     "lib": "lib"
