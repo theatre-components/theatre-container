@@ -29,6 +29,7 @@
       "typescript": "npm:typescript@^1.6.2"
     }
   },
+  "repository": "theatre-components/theatre-container"
   "devDependencies": {
     "jasmine-core": "^2.4.1",
     "jspm": "^0.16.29",
