@@ -1,8 +1,8 @@
 /**
  * Exports all decorators
  */
-import service from 'theatre/container/decorators/service';
-import tag from 'theatre/container/decorators/tag';
-import parameter from 'theatre/container/decorators/parameter';
+import service from './decorators/service';
+import tag from './decorators/tag';
+import parameter from './decorators/parameter';
 
 export {service, tag, parameter};

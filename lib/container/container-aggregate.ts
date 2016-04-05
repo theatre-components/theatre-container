@@ -1,10 +1,10 @@
-import SimpleContainer from 'theatre/container/container/simple-container';
-import ContainerInterface from 'theatre/container/container/container-interface';
-import ContainerAggregateInterface from 'theatre/container/container/container-aggregate-interface';
-import DefinitionInterface from 'theatre/container/definition/definition-interface';
-import ContainerCollectionInterface from 'theatre/container/container/container-collection-interface';
-import ContainerError from 'theatre/container/error/container-error';
-import DefinitionCollectionInterface from 'theatre/container/definition/definition-collection-interface';
+import SimpleContainer from './simple-container';
+import ContainerInterface from './container-interface';
+import ContainerAggregateInterface from './container-aggregate-interface';
+import DefinitionInterface from './../definition/definition-interface';
+import ContainerCollectionInterface from './container-collection-interface';
+import ContainerError from './../error/container-error';
+import DefinitionCollectionInterface from './../definition/definition-collection-interface';
 
 /**
  * A standard implementation for a container aggregation.

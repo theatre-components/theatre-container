@@ -1,5 +1,5 @@
-import container from 'theatre/container';
-import {service, tag, parameter} from 'theatre/container/decorators';
+import container from 'lib/main';
+import {service, tag, parameter} from 'lib/decorators';
 
 @service('_some_basic_service')
 class SomeBasicServiceClass

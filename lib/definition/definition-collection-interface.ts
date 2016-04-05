@@ -1,4 +1,4 @@
-import DefinitionInterface from 'theatre/container/definition/definition-interface';
+import DefinitionInterface from './definition-interface';
 
 /**
  * Group a DefinitionInterface under a name.

@@ -1,8 +1,8 @@
-import SimpleContainer from 'theatre/container/container/simple-container';
-import DefinitionInterface from 'theatre/container/definition/definition-interface';
-import Types from 'theatre/container/definition/types';
-import ContainerError from 'theatre/container/error/container-error';
-import Resolver from 'theatre/container/resolver/resolver';
+import SimpleContainer from 'lib/container/simple-container';
+import DefinitionInterface from 'lib/definition/definition-interface';
+import Types from 'lib/definition/types';
+import ContainerError from 'lib/error/container-error';
+import Resolver from 'lib/resolver/resolver';
 
 let container: SimpleContainer;
 let definition: DefinitionInterface;

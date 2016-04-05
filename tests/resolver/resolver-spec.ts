@@ -1,8 +1,8 @@
-import Resolver from 'theatre/container/resolver/resolver';
-import DefinitionInterface from 'theatre/container/definition/definition-interface';
-import ContainerInterface from 'theatre/container/container/container-interface';
-import ContainerError from 'theatre/container/error/container-error';
-import Types from 'theatre/container/definition/types';
+import Resolver from 'lib/resolver/resolver';
+import DefinitionInterface from 'lib/definition/definition-interface';
+import ContainerInterface from 'lib/container/container-interface';
+import ContainerError from 'lib/error/container-error';
+import Types from 'lib/definition/types';
 
 let resolver: Resolver;
 let emptyResolver: Resolver;

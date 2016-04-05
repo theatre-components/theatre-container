@@ -1,5 +1,5 @@
-import DefinitionInterface from 'theatre/container/definition/definition-interface';
-import ContainerInterface from 'theatre/container/container/container-interface';
+import DefinitionInterface from './../definition/definition-interface';
+import ContainerInterface from './../container/container-interface';
 
 /**
  * A resolver is used to resolve a given DefinitionInterface.

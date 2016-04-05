@@ -1,5 +1,5 @@
-import DefinitionInterface from 'theatre/container/definition/definition-interface';
-import DefinitionCollectionInterface from 'theatre/container/definition/definition-collection-interface';
+import DefinitionInterface from './../definition/definition-interface';
+import DefinitionCollectionInterface from './../definition/definition-collection-interface';
 
 /**
  * Contains the basic blueprint for a container.

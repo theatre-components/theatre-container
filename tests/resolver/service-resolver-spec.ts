@@ -1,7 +1,7 @@
-import ServiceResolver from 'theatre/container/resolver/service-resolver';
-import DefinitionInterface from 'theatre/container/definition/definition-interface';
-import Types from 'theatre/container/definition/types';
-import ContainerInterface from 'theatre/container/container/container-interface';
+import ServiceResolver from 'lib/resolver/service-resolver';
+import DefinitionInterface from 'lib/definition/definition-interface';
+import Types from 'lib/definition/types';
+import ContainerInterface from 'lib/container/container-interface';
 
 let resolver: ServiceResolver;
 let container: ContainerInterface;

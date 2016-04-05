@@ -1,4 +1,4 @@
-import ContainerInterface from 'theatre/container/container/container-interface';
+import ContainerInterface from './../../container/container-interface';
 
 /**
  * Listener for an after resolver hook.

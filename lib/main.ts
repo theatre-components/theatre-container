@@ -6,7 +6,7 @@
  *
  * @author David Jegat <david.jegat@gmail.com>
  */
-import ContainerAggregate from 'theatre/container/container/container-aggregate';
+import ContainerAggregate from './container/container-aggregate';
 
 const container = new ContainerAggregate();
 

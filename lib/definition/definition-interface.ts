@@ -1,5 +1,5 @@
-import Types from 'theatre/container/definition/types';
-import MetadataInterface from 'theatre/container/definition/metadata-interface';
+import Types from './types';
+import MetadataInterface from './metadata-interface';
 
 /**
  * This is how to define a container member.

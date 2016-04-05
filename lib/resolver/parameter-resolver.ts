@@ -1,7 +1,7 @@
-import SupportableResolverInterface from 'theatre/container/resolver/supportable-resolver-interface';
-import DefinitionInterface from 'theatre/container/definition/definition-interface';
-import Types from 'theatre/container/definition/types';
-import ContainerInterface from 'theatre/container/container/container-interface';
+import SupportableResolverInterface from './supportable-resolver-interface';
+import DefinitionInterface from './../definition/definition-interface';
+import Types from './../definition/types';
+import ContainerInterface from './../container/container-interface';
 
 /**
  * Resolve parameter definitions. It also resolved recursivly parameters

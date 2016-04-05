@@ -1,4 +1,4 @@
-import ContainerError from 'theatre/container/error/container-error';
+import ContainerError from './../error/container-error';
 
 /**
  * Inject a dependency into a service definition. Decorates function parameters.

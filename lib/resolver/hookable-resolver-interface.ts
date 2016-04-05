@@ -1,6 +1,6 @@
-import ResolverInterface from 'theatre/container/resolver/resolver-interface';
-import BeforeListenerInterface from 'theatre/container/resolver/listener/before-listener-interface';
-import AfterListenerInterface from 'theatre/container/resolver/listener/after-listener-interface';
+import ResolverInterface from './resolver-interface';
+import BeforeListenerInterface from './listener/before-listener-interface';
+import AfterListenerInterface from './listener/after-listener-interface';
 
 /**
  * Allow a resolver to be hooked by listeners.

@@ -1,5 +1,5 @@
-import DefinitionInterface from 'theatre/container/definition/definition-interface';
-import ContainerInterface from 'theatre/container/container/container-interface';
+import DefinitionInterface from './../../definition/definition-interface';
+import ContainerInterface from './../../container/container-interface';
 
 /**
  * This is a before hook lisener function.

@@ -1,4 +1,4 @@
-import ContainerInterface from 'theatre/container/container/container-interface';
+import ContainerInterface from './container-interface';
 
 /**
  * Contains one a plural container under a name.

@@ -1,4 +1,4 @@
-import ContainerInterface from 'theatre/container/container/container-interface';
+import ContainerInterface from './container-interface';
 
 /**
  * This kind of container can "embed" other containers under namespaces.

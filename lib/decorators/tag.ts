@@ -1,6 +1,6 @@
-import ContainerInterface from 'theatre/container/container/container-interface';
-import ContainerError from 'theatre/container/error/container-error';
-import MetadataInterface from 'theatre/container/definition/metadata-interface';
+import ContainerInterface from './../container/container-interface';
+import ContainerError from './../error/container-error';
+import MetadataInterface from './../definition/metadata-interface';
 
 /**
  * Add to a class some tags for the container.

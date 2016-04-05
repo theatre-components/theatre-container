@@ -1,4 +1,4 @@
-import ResolverInterface from 'theatre/container/resolver/resolver-interface';
+import ResolverInterface from './../resolver/resolver-interface';
 
 /**
  * Allow a resolver to support only some definition kind.

@@ -1,8 +1,8 @@
-import ContainerInterface from 'theatre/container/container/container-interface';
-import DefinitionInterface from 'theatre/container/definition/definition-interface';
-import DefinitionCollectionInterface from 'theatre/container/definition/definition-collection-interface';
-import ContainerError from 'theatre/container/error/container-error';
-import Resolver from 'theatre/container/resolver/resolver';
+import ContainerInterface from './container-interface';
+import DefinitionInterface from './../definition/definition-interface';
+import DefinitionCollectionInterface from './../definition/definition-collection-interface';
+import ContainerError from './../error/container-error';
+import Resolver from './../resolver/resolver';
 
 /**
  * This is the simplest implementation of a ContainerInterface.

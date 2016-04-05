@@ -1,12 +1,12 @@
-import HookableResolverInterface from 'theatre/container/resolver/hookable-resolver-interface';
-import ContainerInterface from 'theatre/container/container/container-interface';
-import DefinitionInterface from 'theatre/container/definition/definition-interface';
-import BeforeListenerInterface from 'theatre/container/resolver/listener/before-listener-interface';
-import AfterListenerInterface from 'theatre/container/resolver/listener/after-listener-interface';
-import SupportableResolverInterface from 'theatre/container/resolver/supportable-resolver-interface';
-import ContainerError from 'theatre/container/error/container-error';
-import ParameterResolver from 'theatre/container/resolver/parameter-resolver';
-import ServiceResolver from 'theatre/container/resolver/service-resolver';
+import HookableResolverInterface from './hookable-resolver-interface';
+import ContainerInterface from './../container/container-interface';
+import DefinitionInterface from './../definition/definition-interface';
+import BeforeListenerInterface from './listener/before-listener-interface';
+import AfterListenerInterface from './listener/after-listener-interface';
+import SupportableResolverInterface from './supportable-resolver-interface';
+import ContainerError from './../error/container-error';
+import ParameterResolver from './parameter-resolver';
+import ServiceResolver from './service-resolver';
 
 /**
  * Resolve any kind of definition. You can hook resolve process thanks to

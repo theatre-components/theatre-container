@@ -1,7 +1,7 @@
-import ParameterResolver from 'theatre/container/resolver/parameter-resolver';
-import ContainerInterface from 'theatre/container/container/container-interface';
-import DefinitionInterface from 'theatre/container/definition/definition-interface';
-import Types from 'theatre/container/definition/types';
+import ParameterResolver from 'lib/resolver/parameter-resolver';
+import ContainerInterface from 'lib/container/container-interface';
+import DefinitionInterface from 'lib/definition/definition-interface';
+import Types from 'lib/definition/types';
 
 let resolver: ParameterResolver;
 let container: ContainerInterface;
