@@ -1,0 +1,15 @@
+{
+  "name": "{{ package.name }}",
+  "version": "{{ package.version }}",
+  "description": "{{ package.description }}",
+  "scripts": {},
+  "keywords": [
+    "dic",
+    "ioc",
+    "inversion control",
+    "dependency injection",
+    "typescript"
+  ],
+  "author": "{{ package.author }}",
+  "license": "{{ package.license }}"
+}

@@ -1,0 +1,45 @@
+{
+  "name": "theatre-container-src",
+  "version": "0.0.0",
+  "description": "A simple and extensible dependency injection tool",
+  "scripts": {
+    "test": "karma start --single-run",
+    "postinstall": "jspm install && typings install",
+    "start": "concurrently \"./node_modules/.bin/tsc -w\" \"./node_modules/.bin/karma start\"",
+    "watch": "tsc -w --pretty",
+    "build-systemjs": "tsc --declaration && node script/create-package.js -o dist/systemjs/lib -p systemjs",
+    "build-es2015": "tsc --declaration --module es2015 --outDir \"dist/es2015\" --target ES2015 && node script/create-package.js -o dist/es2015/lib -p es6",
+    "build-commonjs": "tsc --declaration --module commonjs --outDir \"dist/commonjs\" && node script/create-package.js -o dist/commonjs/lib -p commonjs",
+    "build-all": "npm run build-systemjs && npm run build-es2015 && npm run build-commonjs"
+  },
+  "keywords": [
+    "dic",
+    "ioc",
+    "inversion control",
+    "dependency injection",
+    "typescript"
+  ],
+  "author": "David Jegat <david.jegat@gmail.com>",
+  "license": "WTFPL",
+  "devDependencies": {
+    "concurrently": "^2.0.0",
+    "fs-extra": "^0.28.0",
+    "jasmine-core": "^2.4.1",
+    "jspm": "^0.16.33",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^0.2.3",
+    "karma-jasmine": "^0.3.8",
+    "karma-jspm": "^2.1.0",
+    "karma-mocha-reporter": "^2.0.1",
+    "typescript": "^1.8.10",
+    "typings": "^0.7.12"
+  },
+  "jspm": {
+    "configFile": "jspm-config.js",
+    "devDependencies": {}
+  },
+  "files": [
+    "README.md",
+    "LICENSE"
+  ]
+}
