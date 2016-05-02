@@ -1,6 +1,8 @@
 Theatre - Container
 ===================
 
+[![Circle CI](https://circleci.com/gh/theatre-components/theatre-container/tree/master.svg?style=svg)](https://circleci.com/gh/theatre-components/theatre-container/tree/master)
+
 A simple and extendable dependency injection component for the web.
 
 ## 1. Installation
