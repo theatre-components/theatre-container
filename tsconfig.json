@@ -3,7 +3,7 @@
         "module": "system",
         "target": "es5",
         "noImplicitAny": false,
-        "outDir": "dist/systemjs",
+        "outDir": "dist/dev",
         "rootDir": ".",
         "sourceMap": true,
         "experimentalDecorators": true,

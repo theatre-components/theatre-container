@@ -3,15 +3,12 @@ import DefinitionInterface from './../definition/definition-interface';
 import DefinitionResolverInterface from './../resolver/definition-resolver-interface';
 import RegistrationError from './../error/registration-error';
 import createDefaultResolver from './../resolver/factory';
+import DefinitionCollectorInterface from './../definition/collector/definition-collector-interface';
+import DefinitionCollector from './../definition/collector/definition-collector';
 
 interface CompiledDefinitionCollectionInterface
 {
     [index: string]: any;
-}
-
-interface DefinitionCollectionInterface
-{
-    [index: string]: DefinitionInterface;
 }
 
 /**
@@ -19,17 +16,20 @@ interface DefinitionCollectionInterface
  */
 export default class Container implements ContainerInterface
 {
-    private definitions: DefinitionCollectionInterface;
-
     private compiled: CompiledDefinitionCollectionInterface;
 
-    constructor(private definitionResolver?: DefinitionResolverInterface)
-    {
+    constructor(
+        private definitionResolver?: DefinitionResolverInterface,
+        private definitionsCollector?: DefinitionCollectorInterface
+    ) {
         if (!definitionResolver) {
             this.definitionResolver = createDefaultResolver();
         }
 
-        this.definitions = <DefinitionCollectionInterface>{};
+        if (!definitionsCollector) {
+            this.definitionsCollector = new DefinitionCollector();
+        }
+
         this.compiled = <CompiledDefinitionCollectionInterface>{};
     }
 
@@ -38,11 +38,7 @@ export default class Container implements ContainerInterface
      */
     register(definition: DefinitionInterface): ContainerInterface
     {
-        if (undefined !== this.definitions[definition.name]) {
-            throw new RegistrationError(`The member named ${definition.name} is already registered in the container. You can't register the same member twice.`);
-        }
-
-        this.definitions[definition.name] = definition;
+        this.definitionsCollector.collect(definition);
 
         return this;
     }
@@ -52,34 +48,38 @@ export default class Container implements ContainerInterface
      */
     get(name: string): any
     {
-        if (undefined === this.compiled[name]) {
-            if (undefined === this.definitions[name]) {
-                throw new RegistrationError(`No member named ${name} has been found in the container.`);
-            }
-
-            if (this.definitions[name].compilationPass) {
-                for (let pass of this.definitions[name].compilationPass) {
-                    pass.beforeCompilation(this.definitions[name], this);
-                }
-            }
-
-            let resolvedMember = this.definitionResolver.resolve(
-                this.definitions[name],
-                this
-            );
-
-            if (this.definitions[name].compilationPass) {
-                for (let pass of this.definitions[name].compilationPass) {
-                    pass.afterCompilation(resolvedMember, this);
-                }
-            }
-
-            if (undefined !== this.definitions[name].metadata && false === this.definitions[name].metadata['singleton']) {
-                return resolvedMember;
-            }
-
-            this.compiled[name] = resolvedMember;
+        if (undefined !== this.compiled[name]) {
+            return this.compiled[name];
         }
+
+        if (!this.definitionsCollector.exists(name)) {
+            throw new RegistrationError(`No member named ${name} has been found in the container.`);
+        }
+
+        let definition = this.definitionsCollector.retrieve(name);
+
+        if (definition.compilationPass) {
+            for (let pass of definition.compilationPass) {
+                pass.beforeCompilation(definition, this);
+            }
+        }
+
+        let resolvedMember = this.definitionResolver.resolve(
+            definition,
+            this
+        );
+
+        if (definition.compilationPass) {
+            for (let pass of definition.compilationPass) {
+                pass.afterCompilation(resolvedMember, this);
+            }
+        }
+
+        if (undefined !== definition.metadata && false === definition.metadata['singleton']) {
+            return resolvedMember;
+        }
+
+        this.compiled[name] = resolvedMember;
 
         return this.compiled[name];
     }
@@ -89,41 +89,11 @@ export default class Container implements ContainerInterface
      */
     has(name: string): boolean
     {
-        return undefined !== this.definitions[name];
+        return this.definitionsCollector.exists(name);
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    findDefinitions(...metadataKeys: string[]): Array<DefinitionInterface>
+    get definitions(): DefinitionCollectorInterface
     {
-        let results = [];
-
-        for (let meta of metadataKeys) {
-            for (let i in this.definitions) {
-                let definition = this.definitions[i];
-                let alreadyRegistered = false;
-
-                if (undefined === definition.metadata[meta]) {
-                    continue;
-                }
-
-                for (let registeredDefinition of results) {
-                    if (definition === registeredDefinition) {
-                        alreadyRegistered = true;
-
-                        break;
-                    }
-                }
-
-                if (alreadyRegistered) {
-                    continue;
-                }
-
-                results.push(definition);
-            }
-        }
-
-        return results;
+        return this.definitionsCollector;
     }
 }

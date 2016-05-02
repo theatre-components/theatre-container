@@ -7,10 +7,11 @@
     "postinstall": "jspm install && typings install",
     "start": "concurrently \"./node_modules/.bin/tsc -w\" \"./node_modules/.bin/karma start\"",
     "watch": "tsc -w --pretty",
-    "build-systemjs": "tsc --declaration && node script/create-package.js -o dist/systemjs/lib -p systemjs",
+    "build-systemjs": "tsc --declaration --outDir \"dist/systemjs\" && node script/create-package.js -o dist/systemjs/lib -p systemjs",
     "build-es2015": "tsc --declaration --module es2015 --outDir \"dist/es2015\" --target ES2015 && node script/create-package.js -o dist/es2015/lib -p es6",
     "build-commonjs": "tsc --declaration --module commonjs --outDir \"dist/commonjs\" && node script/create-package.js -o dist/commonjs/lib -p commonjs",
-    "build-all": "npm run build-systemjs && npm run build-es2015 && npm run build-commonjs"
+    "build-all": "npm run build-systemjs && npm run build-es2015 && npm run build-commonjs",
+    "prepublish": "npm run build-all"
   },
   "keywords": [
     "dic",
@@ -19,8 +20,11 @@
     "dependency injection",
     "typescript"
   ],
-  "author": "David Jegat <david.jegat@gmail.com>",
-  "license": "WTFPL",
+  "author": {
+    "name": "David Jegat",
+    "email": "david.jegat@gmail.com"
+  },
+  "license": "SEE LICENSE IN LICENSE",
   "devDependencies": {
     "concurrently": "^2.0.0",
     "fs-extra": "^0.28.0",
@@ -31,6 +35,7 @@
     "karma-jasmine": "^0.3.8",
     "karma-jspm": "^2.1.0",
     "karma-mocha-reporter": "^2.0.1",
+    "mustache": "^2.2.1",
     "typescript": "^1.8.10",
     "typings": "^0.7.12"
   },

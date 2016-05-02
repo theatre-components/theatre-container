@@ -79,22 +79,6 @@ describe('container/container', () => {
         expect(container.has('baz')).toBe(false);
     });
 
-    it('can retrieve definitions by metadata', () => {
-        let definitions = container.findDefinitions('a');
-
-        expect(definitions[0]).toBe(definition1);
-        expect(definitions[1]).toBe(definition3);
-
-        definitions = container.findDefinitions('b');
-
-        expect(definitions[0]).toBe(definition2);
-        expect(definitions[1]).toBe(definition3);
-
-        definitions = container.findDefinitions('a', 'b');
-
-        expect(definitions.length).toBe(3);
-    });
-
     it('executes compiler pass', () => {
         let service = container.get('bar');
 

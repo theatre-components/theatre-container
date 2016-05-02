@@ -1,0 +1,11 @@
+{
+  "name": "{{ package.name }}",
+  "version": "{{ package.version }}",
+  "description": "{{ package.description }}",
+  "scripts": {},
+  "keywords": {{& package.keywords }},
+  "author": {{& package.author }},
+  "license": "{{ package.license }}",
+  "main": "main.js",
+  "jsnext:main": "main.js"
+}

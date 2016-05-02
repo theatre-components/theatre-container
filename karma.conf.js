@@ -63,13 +63,13 @@ module.exports = function(config) {
     jspm: {
       config: "./jspm-config.js",
       serveFiles: [
-        "dist/systemjs/lib/**/*.js",
+        "dist/dev/lib/**/*.js",
         "jspm_packages/**/*.js",
         "node_modules/**/*.js",
         "tsconfig.json"
       ],
       loadFiles: [
-        "dist/systemjs/test/**/*.js"
+        "dist/dev/test/**/*.js"
       ]
     }
   })
