@@ -10,8 +10,12 @@ var argv            = require('yargs')
     .alias('p', 'packageName')
     .argv
 ;
+var isDefault = argv.default ? true : false;
 
-originalPackage.name = originalPackage.name.replace('-src', '-' + argv.packageName);
+originalPackage.name = isDefault ?
+    originalPackage.name.replace('-src', '') :
+    originalPackage.name.replace('-src', '-' + argv.packageName)
+;
 
 for (var i in originalPackage) {
     if (typeof originalPackage[i] !== 'string') {

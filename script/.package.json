@@ -7,5 +7,6 @@
   "author": {{& package.author }},
   "license": "{{ package.license }}",
   "main": "main.js",
-  "jsnext:main": "main.js"
+  "jsnext:main": "main.js",
+  "repository": {{& package.repository }}
 }
