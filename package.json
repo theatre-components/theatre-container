@@ -1,6 +1,6 @@
 {
   "name": "theatre-container-src",
-  "version": "0.0.1",
+  "version": "3.0.0",
   "description": "A simple and extensible dependency injection tool",
   "scripts": {
     "test": "karma start --single-run",
