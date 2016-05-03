@@ -4,7 +4,7 @@
   "description": "A simple and extensible dependency injection tool",
   "scripts": {
     "test": "karma start --single-run",
-    "postinstall": "jspm install && typings install",
+    "postinstall": "jspm install && typings install && npm run build",
     "start": "concurrently \"./node_modules/.bin/tsc -w\" \"./node_modules/.bin/karma start\"",
     "watch": "tsc -w --pretty",
     "clean-dist": "node script/clean.js --path \"dist\"",
@@ -12,6 +12,7 @@
     "build-es2015": "tsc --declaration --module es2015 --outDir \"dist/es2015\" --target ES2015 && node script/create-package.js -o dist/es2015/lib -p es6",
     "build-commonjs": "tsc --declaration --module commonjs --outDir \"dist/commonjs\" && node script/create-package.js -o dist/commonjs/lib -p commonjs",
     "build-all": "npm run clean-dist && npm run build-systemjs && npm run build-es2015 && npm run build-commonjs",
+    "build": "tsc --pretty",
     "prepublish": "npm run build-all",
     "postpublish": "npm publish dist/systemjs/lib && npm publish dist/commonjs/lib && npm publish dist/es2015/lib"
   },

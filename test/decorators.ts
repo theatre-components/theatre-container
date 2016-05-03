@@ -29,7 +29,7 @@ class TestService
 describe('decorators', () => {
     it('decorate a service', () => {
         expect(container.definitions.exists('__test')).toBe(true);
-        expect(container.get('__test').fullSentence).toBe('The name is foo, and the sentence is "My name is foo"');
+        expect(container.get<TestService>('__test').fullSentence).toBe('The name is foo, and the sentence is "My name is foo"');
     });
 
     it('supports metadata decoration', () => {

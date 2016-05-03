@@ -33,13 +33,13 @@ export default class FrozenContainer implements FrozenContainerInterface
     /**
      * {@inheritdoc}
      */
-    get(name: string): any
+    get<T>(name: string): T
     {
         if (true === this.frozen) {
             throw new RegistrationError('You can\'t retrieve a member in a frozen container');
         }
 
-        return this.container.get(name);
+        return this.container.get<T>(name);
     }
 
     /**

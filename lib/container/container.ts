@@ -46,7 +46,7 @@ export default class Container implements ContainerInterface
     /**
      * {@inheritdoc}
      */
-    get(name: string): any
+    get<T>(name: string): T
     {
         if (undefined !== this.compiled[name]) {
             return this.compiled[name];
@@ -81,7 +81,7 @@ export default class Container implements ContainerInterface
 
         this.compiled[name] = resolvedMember;
 
-        return this.compiled[name];
+        return <T>this.compiled[name];
     }
 
     /**

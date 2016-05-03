@@ -18,7 +18,7 @@ interface ContainerInterface
     /**
      * Retrieve a implementation of something defined before.
      */
-    get(name: string): any;
+    get<T>(name: string): T;
 
     /**
      * Test if this member is present in the container.

@@ -7,8 +7,34 @@ A simple and extendable dependency injection component for the web.
 
 ## 1. Installation
 
-**PENDING**
+With npm & systemjs:
 
+```
+npm install theatre-container
+jspm install npm:theatre-container
+```
+
+You must have the following config for typescript:
+
+```json
+{
+    "compilerOptions": {
+        "moduleResolution": "node",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
+    },
+    "exclude": {
+        "node_modules",
+        "jspm_packages"
+    }
+}
+```
+
+You can also install this component for nodejs:
+
+```
+npm install theatre-container-commonjs
+```
 
 ## 2. Usage
 
@@ -78,7 +104,7 @@ import Something from './my-service';
 
 // Add a new boot function to the kernel:
 kernel.register((container) => {
-    let something = <Something>container.get('something');
+    let something = container.get<Something>('something');
 
     // this will print "Hello djeg!"
     console.log(something.test.sentence);
