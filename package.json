@@ -40,7 +40,8 @@
     "karma-mocha-reporter": "^2.0.1",
     "mustache": "^2.2.1",
     "typescript": "^1.8.10",
-    "typings": "^0.7.12"
+    "typings": "^0.7.12",
+    "yargs": "^4.6.0"
   },
   "jspm": {
     "configFile": "jspm-config.js",
@@ -51,7 +52,7 @@
     "LICENSE"
   ],
   "repository": {
-      "type": "git",
-      "url": "https://github.com/theatre-components/theatre-container"
+    "type": "git",
+    "url": "https://github.com/theatre-components/theatre-container"
   }
 }
