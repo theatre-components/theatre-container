@@ -11,7 +11,7 @@
     "build-systemjs": "tsc --declaration --outDir \"dist/systemjs\" && node script/create-package.js -o dist/systemjs/lib -p systemjs --default",
     "build-es2015": "tsc --declaration --module es2015 --outDir \"dist/es2015\" --target ES2015 && node script/create-package.js -o dist/es2015/lib -p es6",
     "build-commonjs": "tsc --declaration --module commonjs --outDir \"dist/commonjs\" && node script/create-package.js -o dist/commonjs/lib -p commonjs",
-    "build-all": "npm run clean-dist && npm run build-systemjs && npm run build-es2015 && npm run build-commonjs",
+    "build-all": "npm run clean-dist && npm run build-systemjs && npm run build-es2015 && npm run build-commonjs && npm run build",
     "build": "tsc --pretty",
     "prepublish": "npm run build-all",
     "postpublish": "npm publish dist/systemjs/lib && npm publish dist/commonjs/lib && npm publish dist/es2015/lib"
