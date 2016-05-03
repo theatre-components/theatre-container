@@ -1,14 +1,14 @@
 Theatre - Container
 ===================
 
-[![Circle CI](https://circleci.com/gh/theatre-components/theatre-container/tree/master.svg?style=svg)](https://circleci.com/gh/theatre-components/theatre-container/tree/master)
+[![Circle CI](https://circleci.com/gh/theatre-components/theatre-container/tree/master.svg?style=shield)](https://circleci.com/gh/theatre-components/theatre-container/tree/master)
 [![npm version](https://badge.fury.io/js/theatre-container.svg)](https://badge.fury.io/js/theatre-container)
 [![dependencies](https://david-dm.org/theatre-components/theatre-container.svg)](https://david-dm.org/theatre-components/theatre-container)
 [![Gitter chat](https://badges.gitter.im/theatre-components/theatre.png)](https://gitter.im/theatre-components/theatre)
 
 A simple and extendable dependency injection component for the web.
 
-## 1. Installation
+## 1 - Installation
 
 With npm & systemjs:
 
@@ -39,16 +39,16 @@ You can also install this component for nodejs:
 npm install theatre-container-commonjs
 ```
 
-## 2. Usage
+## 2 - Usage
 
 This component is specialy designed for **[ECMA2015 Harmony Module](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Instructions/import)**.
 In this documentation we will use typescript
-but **any ECMA2015 transpiler** should dwork like a charm!
+but **any ECMA2015 transpiler** should work like a charm!
 
-### 2.1 The registration
+### 2.1 - The registration
 
 In order to start using a Dependency Injection Container you need to register
-stuffs inside. There is 3 types of registration:
+members inside. There is 3 types of member:
 
 - `scalar` it's just raw variables that you can inject later.
 - `factory` a function that will be resolved by the container. The result of the function will be injected.
@@ -72,20 +72,16 @@ export class Test
 }
 
 // Now you can declare those members in the container:
-
-// Declare a scalar in the container as `foo`
-scalar('foo', NAME);
-// The third arguments are dependencies. Use a `@` to reference a container member.
-factory('hello', hello, ['@foo']);
-// And finaly a service
-service('test', Test, ['@hello']);
+scalar('foo', NAME); // Declare a scalar in the container as `foo`
+factory('hello', hello, ['@foo']); // The third arguments are dependencies. Use a `@` to reference a container member.
+service('test', Test, ['@hello']); // And finaly a service
 ```
 
 #### 2.1.1 - With decorators (services only)
 
 ```typescript
 // lib/my-service.ts
-import {service} from 'theatre-container/decorators';
+import {service, inject} from 'theatre-container/decorators';
 import {Test} from './my-module';
 
 @inject('@test')
@@ -98,7 +94,8 @@ export default class Something
 
 ### 2.2 - Using the kernel
 
-Now we have some members inside the container we need to **`boot`** the application.
+Now we have some members inside the container we need to **`boot`** the application in order to start
+using those members.
 
 ```typescript
 // lib/main.ts
@@ -113,6 +110,15 @@ kernel.register((container) => {
     console.log(something.test.sentence);
 });
 
-// Now we call the boot:
+// Launch all the registered boot function in the kernel.
 kernel.boot();
 ```
+
+## 3 - Go further
+
+This component expose some advanced practice for your container members:
+
+- [Metadata and compiler pass](doc/metadata-compiler-pass.md)
+- [Good practices about container and naming](doc/good-practice.md)
+- [Some examples](examples)
+- [Contributions](doc/contributions.md)
