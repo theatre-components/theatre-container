@@ -2,6 +2,8 @@ Theatre - Container
 ===================
 
 [![Circle CI](https://circleci.com/gh/theatre-components/theatre-container/tree/master.svg?style=svg)](https://circleci.com/gh/theatre-components/theatre-container/tree/master)
+[![npm version](https://badge.fury.io/js/theatre-container.svg)](https://badge.fury.io/js/theatre-container)
+[![dependencies](https://david-dm.org/theatre-components/theatre-container.svg)](https://david-dm.org/theatre-components/theatre-container)
 
 A simple and extendable dependency injection component for the web.
 
@@ -23,10 +25,10 @@ You must have the following config for typescript:
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true
     },
-    "exclude": {
+    "exclude": [
         "node_modules",
         "jspm_packages"
-    }
+    ]
 }
 ```
 
