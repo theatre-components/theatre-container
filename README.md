@@ -4,6 +4,7 @@ Theatre - Container
 [![Circle CI](https://circleci.com/gh/theatre-components/theatre-container/tree/master.svg?style=svg)](https://circleci.com/gh/theatre-components/theatre-container/tree/master)
 [![npm version](https://badge.fury.io/js/theatre-container.svg)](https://badge.fury.io/js/theatre-container)
 [![dependencies](https://david-dm.org/theatre-components/theatre-container.svg)](https://david-dm.org/theatre-components/theatre-container)
+[![Gitter chat](https://badges.gitter.im/theatre-components/theatre.png)](https://gitter.im/theatre-components/theatre)
 
 A simple and extendable dependency injection component for the web.
 
