@@ -9,3 +9,9 @@ dependencies:
 test:
   override:
     - npm test
+
+deployment:
+  codecov:
+    branch: /.*/
+    commands:
+      - bash <(curl -s https://codecov.io/bash)
