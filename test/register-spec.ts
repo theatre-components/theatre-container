@@ -8,7 +8,7 @@ class TestService
 
 describe('register', () => {
     it('can register a scalar', () => {
-        register.scalar('test', 'foo ?');
+        register.scalar<string>('test', 'foo ?');
 
         expect(container.get<string>('test')).toBe('foo ?');
     });
@@ -16,7 +16,7 @@ describe('register', () => {
     it('can register a factory', () => {
         let f = (x) => { return `Hello ${x}`; };
 
-        register.factory('bar', f, ['@test']);
+        register.factory<Function>('bar', f, ['@test']);
 
         expect(container.get<string>('bar')).toBe('Hello foo ?');
     });

@@ -5,7 +5,7 @@ import CompilationPassInterface from './../compilation/compilation-pass-interfac
  * A definition is used for container registration. It allows you to define
  * a container member and how it should be resolved.
  */
-interface DefinitionInterface
+interface DefinitionInterface<T>
 {
     /**
      * Used as an identifier inside the container.
@@ -23,7 +23,7 @@ interface DefinitionInterface
      * This is the value / function or class that will be resolved into
      * the container.
      */
-    subject: any;
+    subject: T;
 
     /**
      * Defines here the members you want to inject.
@@ -38,7 +38,7 @@ interface DefinitionInterface
     /**
      * Pass here the compilation pass for this definition.
      */
-    compilationPass?: Array<CompilationPassInterface>;
+    compilationPass?: Array<CompilationPassInterface<T>>;
 }
 
 export default DefinitionInterface;

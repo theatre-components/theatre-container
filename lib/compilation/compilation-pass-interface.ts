@@ -4,19 +4,19 @@ import ContainerInterface from './../container/container-interface';
 /**
  * Used for hooking a definition compilation process.
  */
-interface CompilationPassInterface
+interface CompilationPassInterface<T>
 {
     /**
      * This method will be launched just before the compilation allowing
      * you to «Hook» a definition.
      */
-    beforeCompilation?(definition: DefinitionInterface, container: ContainerInterface): void;
+    beforeCompilation?(definition: DefinitionInterface<T>, container: ContainerInterface): void;
 
     /**
      * This one «Hook» a given resolved members just after the definition has
      * been resolved.
      */
-    afterCompilation?(subject: any, container: ContainerInterface): void;
+    afterCompilation?(subject: T, container: ContainerInterface): void;
 }
 
 export default CompilationPassInterface;

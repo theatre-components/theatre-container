@@ -11,7 +11,7 @@ export default class FactoryDefinitionResolver implements SupportableDefinitionR
     /**
      * {@inheritdoc}
      */
-    resolve(definition: DefinitionInterface, container: ContainerInterface): any
+    resolve<T extends Function>(definition: DefinitionInterface<T>, container: ContainerInterface): T
     {
         if (!definition.inject) {
             return definition.subject.apply({}, []);
@@ -35,7 +35,7 @@ export default class FactoryDefinitionResolver implements SupportableDefinitionR
     /**
      * {@inheritdoc}
      */
-    supports(definition: DefinitionInterface): boolean
+    supports<T>(definition: DefinitionInterface<T>): boolean
     {
         return definition.type === TYPES.Factory;
     }

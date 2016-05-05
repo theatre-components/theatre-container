@@ -11,7 +11,7 @@ export default class ScalarDefinitionResolver implements SupportableDefinitionRe
     /**
      * {@inheritdoc}
      */
-    resolve(definition: DefinitionInterface, container: ContainerInterface): any
+    resolve<T>(definition: DefinitionInterface<T>, container: ContainerInterface): T
     {
         return definition.subject;
     }
@@ -19,7 +19,7 @@ export default class ScalarDefinitionResolver implements SupportableDefinitionRe
     /**
      * {@inheritdoc}
      */
-    supports(definition: DefinitionInterface): boolean
+    supports<T>(definition: DefinitionInterface<T>): boolean
     {
         return definition.type === TYPES.Scalar;
     }

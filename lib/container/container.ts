@@ -20,14 +20,14 @@ export default class Container implements ContainerInterface
 
     constructor(
         private definitionResolver?: DefinitionResolverInterface,
-        private definitionsCollector?: DefinitionCollectorInterface
+        private definitionsCollector?: DefinitionCollectorInterface<any>
     ) {
         if (!definitionResolver) {
             this.definitionResolver = createDefaultResolver();
         }
 
         if (!definitionsCollector) {
-            this.definitionsCollector = new DefinitionCollector();
+            this.definitionsCollector = new DefinitionCollector<any>();
         }
 
         this.compiled = <CompiledDefinitionCollectionInterface>{};
@@ -36,7 +36,7 @@ export default class Container implements ContainerInterface
     /**
      * {@inheritdoc}
      */
-    register(definition: DefinitionInterface): ContainerInterface
+    register<A>(definition: DefinitionInterface<A>): ContainerInterface
     {
         this.definitionsCollector.collect(definition);
 
@@ -92,7 +92,7 @@ export default class Container implements ContainerInterface
         return this.definitionsCollector.exists(name);
     }
 
-    get definitions(): DefinitionCollectorInterface
+    get definitions(): DefinitionCollectorInterface<any>
     {
         return this.definitionsCollector;
     }

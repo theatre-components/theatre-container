@@ -7,13 +7,13 @@ import DefinitionInterface from './../../definition/definition-interface';
  * Create a scalar registration function with a given container.
  */
 export default function createScalarRegister(container: ContainerInterface) {
-    return (
+    return <T>(
         name: string,
-        subject: any,
+        subject: T,
         metadata?: Object,
-        compilationPass?: Array<CompilationPassInterface>
+        compilationPass?: Array<CompilationPassInterface<T>>
     ) => {
-        let definition = <DefinitionInterface>{
+        let definition = <DefinitionInterface<T>>{
             name: name,
             subject: subject,
             type: TYPES.Scalar,
@@ -21,6 +21,6 @@ export default function createScalarRegister(container: ContainerInterface) {
             compilationPass: compilationPass || []
         };
 
-        container.register(definition);
+        container.register<T>(definition);
     };
 };

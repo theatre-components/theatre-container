@@ -19,7 +19,7 @@ export default class FrozenContainer implements FrozenContainerInterface
     /**
      * {@inheritdoc}
      */
-    register(definition: DefinitionInterface): ContainerInterface
+    register<A>(definition: DefinitionInterface<A>): ContainerInterface
     {
         if (true === this.frozen) {
             throw new RegistrationError('You can\'t register new definition in a frozen container');
@@ -58,7 +58,7 @@ export default class FrozenContainer implements FrozenContainerInterface
         this.frozen = true;
     }
 
-    get definitions(): DefinitionCollectorInterface
+    get definitions(): DefinitionCollectorInterface<any>
     {
         return this.container.definitions;
     }

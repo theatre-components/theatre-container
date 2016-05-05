@@ -9,7 +9,7 @@ interface SupportableDefinitionResolverInterface extends DefinitionResolverInter
     /**
      * Supports a given definition.
      */
-    supports(definition: DefinitionInterface): boolean;
+    supports<T>(definition: DefinitionInterface<T>): boolean;
 }
 
 export default SupportableDefinitionResolverInterface;

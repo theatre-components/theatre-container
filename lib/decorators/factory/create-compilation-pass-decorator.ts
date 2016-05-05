@@ -6,7 +6,7 @@ import CompilationPassInterface from './../../compilation/compilation-pass-inter
  * Create a @compilationPass decorator.
  */
 export default function createCompilationPassDecorator(container: ContainerInterface) {
-    return (...compilationPass: Array<CompilationPassInterface>) => {
+    return <T>(...compilationPass: Array<CompilationPassInterface<T>>) => {
         return (target: Function) => {
             if (!target['__theatreDefinition']) {
                 throw new RegistrationError('Undefined service name. You must use the @service decorator before @compilationPass.');

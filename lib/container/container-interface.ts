@@ -7,13 +7,13 @@ import DefinitionCollectorInterface from './../definition/collector/definition-c
  */
 interface ContainerInterface
 {
-    definitions: DefinitionCollectorInterface;
+    definitions: DefinitionCollectorInterface<any>;
 
     /**
      * Register a definition in the container. Once a definition registered
      * you can easily retrieve it by using the `get` method.
      */
-    register(definition: DefinitionInterface): ContainerInterface;
+    register<A>(definition: DefinitionInterface<A>): ContainerInterface;
 
     /**
      * Retrieve a implementation of something defined before.

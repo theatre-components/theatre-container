@@ -7,14 +7,14 @@ import DefinitionInterface from './../../definition/definition-interface';
  * Create a service registration function with a given container.
  */
 export default function createServiceRegister(container: ContainerInterface) {
-    return (
+    return <T>(
         name: string,
-        subject: any,
+        subject: T,
         inject?: Array<string>,
         metadata?: Object,
-        compilationPass?: Array<CompilationPassInterface>
+        compilationPass?: Array<CompilationPassInterface<T>>
     ) => {
-        let definition = <DefinitionInterface>{
+        let definition = <DefinitionInterface<T>>{
             name: name,
             subject: subject,
             type: TYPES.Service,
@@ -23,6 +23,6 @@ export default function createServiceRegister(container: ContainerInterface) {
             compilationPass: compilationPass || []
         };
 
-        container.register(definition);
+        container.register<T>(definition);
     };
 };

@@ -14,7 +14,7 @@ class SimpleHello
 
 let beforeCompilation, afterCompilation = false;
 
-class CustomCompilerPass implements CompilationPassInterface
+class CustomCompilerPass<T> implements CompilationPassInterface<T>
 {
     beforeCompilation(definition, container)
     {

@@ -9,7 +9,7 @@ interface DefinitionResolverInterface
     /**
      * Resolve a given definition.
      */
-    resolve(definition: DefinitionInterface, container: ContainerInterface): any;
+    resolve<T>(definition: DefinitionInterface<T>, container: ContainerInterface): T;
 }
 
 export default DefinitionResolverInterface;

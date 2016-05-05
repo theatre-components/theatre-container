@@ -1,20 +1,20 @@
 import DefinitionInterface from './../definition-interface';
 
-export interface LoopOnDefinitionInterface
+export interface LoopOnDefinitionInterface<T>
 {
-    (definition: DefinitionInterface): void;
+    (definition: DefinitionInterface<T>): void;
 }
 
 /**
  * Collect container definitions and allow you to search and modify
  * definitions.
  */
-interface DefinitionCollectorInterface
+interface DefinitionCollectorInterface<T>
 {
     /**
      * Collect a new definition.
      */
-    collect(definition: DefinitionInterface): DefinitionCollectorInterface;
+    collect(definition: DefinitionInterface<T>): DefinitionCollectorInterface<T>;
 
     /**
      * Test if a definition exists.
@@ -24,22 +24,22 @@ interface DefinitionCollectorInterface
     /**
      * Retriave a definition.
      */
-    retrieve(name: string): DefinitionInterface;
+    retrieve(name: string): DefinitionInterface<T>;
 
     /**
      * Replace an existing definition.
      */
-    replace(definition: DefinitionInterface): DefinitionCollectorInterface;
+    replace(definition: DefinitionInterface<T>): DefinitionCollectorInterface<T>;
 
     /**
      * Loop on each definitions.
      */
-    forEach(callback: LoopOnDefinitionInterface): DefinitionCollectorInterface;
+    forEach(callback: LoopOnDefinitionInterface<T>): DefinitionCollectorInterface<T>;
 
     /**
      * Find a definition by metadata.
      */
-    find(...metas: Array<string>): Array<DefinitionInterface>;
+    find(...metas: Array<string>): Array<DefinitionInterface<T>>;
 }
 
 export default DefinitionCollectorInterface;

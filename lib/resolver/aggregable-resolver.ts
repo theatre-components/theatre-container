@@ -19,14 +19,14 @@ export default class AggregableResolver implements DefinitionResolverInterface
     /**
      * {@inheritdoc}
      */
-    resolve(definition: DefinitionInterface, container: ContainerInterface): any
+    resolve<T>(definition: DefinitionInterface<T>, container: ContainerInterface): T
     {
         for (let resolver of this.resolvers) {
-            if (!resolver.supports(definition)) {
+            if (!resolver.supports<T>(definition)) {
                 continue;
             }
 
-            return resolver.resolve(definition, container);
+            return resolver.resolve<T>(definition, container);
         }
 
         let parsedDefinition = JSON.stringify(definition, null, 4);

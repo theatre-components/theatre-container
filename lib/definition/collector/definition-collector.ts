@@ -6,9 +6,9 @@ import RegistrationError from './../../error/registration-error';
 /**
  * Implements a standard definition collector.
  */
-export default class DefinitionCollector implements DefinitionCollectorInterface
+export default class DefinitionCollector<T> implements DefinitionCollectorInterface<T>
 {
-    private definitions: Array<DefinitionInterface>;
+    private definitions: Array<DefinitionInterface<T>>;
 
     constructor()
     {
@@ -18,7 +18,7 @@ export default class DefinitionCollector implements DefinitionCollectorInterface
     /**
      * {@inheritdoc}
      */
-    collect(definition: DefinitionInterface): DefinitionCollectorInterface
+    collect(definition: DefinitionInterface<T>): DefinitionCollectorInterface<T>
     {
         if (this.exists(definition.name)) {
             throw new RegistrationError(`The definition "${definition.name}" is already registered into the container.`);
@@ -46,7 +46,7 @@ export default class DefinitionCollector implements DefinitionCollectorInterface
     /**
      * {@inheritdoc}
      */
-    retrieve(name: string): DefinitionInterface
+    retrieve(name: string): DefinitionInterface<T>
     {
         for (let definition of this.definitions) {
             if (name === definition.name) {
@@ -60,7 +60,7 @@ export default class DefinitionCollector implements DefinitionCollectorInterface
     /**
      * Replace a given definition.
      */
-    replace(definition: DefinitionInterface): DefinitionCollectorInterface
+    replace(definition: DefinitionInterface<T>): DefinitionCollectorInterface<T>
     {
         if (!this.exists(definition.name)) {
             throw new RegistrationError(`Unable to replace the definition "${definition.name}", it's not registered in the container. Maybe a type somewhere ?`);
@@ -80,7 +80,7 @@ export default class DefinitionCollector implements DefinitionCollectorInterface
     /**
      * {@inheritdoc}
      */
-    forEach(callback: LoopOnDefinitionInterface): DefinitionCollectorInterface
+    forEach(callback: LoopOnDefinitionInterface<T>): DefinitionCollectorInterface<T>
     {
         for (let definition of this.definitions) {
             callback(definition);
@@ -92,7 +92,7 @@ export default class DefinitionCollector implements DefinitionCollectorInterface
     /**
      * {@inheritdoc}
      */
-    find(...metas: Array<string>): Array<DefinitionInterface>
+    find(...metas: Array<string>): Array<DefinitionInterface<T>>
     {
         let results = [];
 

@@ -7,14 +7,14 @@ import DefinitionInterface from './../../definition/definition-interface';
  * Create a factory registration function with a given container.
  */
 export default function createFactoryRegister(container: ContainerInterface) {
-    return (
+    return <T extends Function>(
         name: string,
-        subject: any,
+        subject: T,
         inject?: Array<string>,
         metadata?: Object,
-        compilationPass?: Array<CompilationPassInterface>
+        compilationPass?: Array<CompilationPassInterface<T>>
     ) => {
-        let definition = <DefinitionInterface>{
+        let definition = <DefinitionInterface<T>>{
             name: name,
             subject: subject,
             type: TYPES.Factory,
@@ -23,6 +23,6 @@ export default function createFactoryRegister(container: ContainerInterface) {
             compilationPass: compilationPass || []
         };
 
-        container.register(definition);
+        container.register<T>(definition);
     };
 };
