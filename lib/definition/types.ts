@@ -2,10 +2,6 @@
  * Contains all the types of definition that a container can
  * resolve.
  */
-const enum TYPES {
-    Scalar,
-    Factory,
-    Service
-};
+type TYPES = 'scalar' | 'factory' | 'service';
 
 export default TYPES;

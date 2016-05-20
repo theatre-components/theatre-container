@@ -92,6 +92,28 @@ export default class Container implements ContainerInterface
         return this.definitionsCollector.exists(name);
     }
 
+    /**
+     * {@inheritdoc}
+     */
+    embed(container: ContainerInterface): ContainerInterface
+    {
+        container.definitions.forEach((definition: DefinitionInterface<any>) => {
+            if (this.definitionsCollector.exists(definition.name)) {
+                this.definitionsCollector.replace(definition);
+
+                this.compiled = <CompiledDefinitionCollectionInterface>{};
+
+                return;
+            }
+
+            this.definitionsCollector.collect(definition);
+
+            this.compiled = <CompiledDefinitionCollectionInterface>{};
+        });
+
+        return this;
+    }
+
     get definitions(): DefinitionCollectorInterface<any>
     {
         return this.definitionsCollector;

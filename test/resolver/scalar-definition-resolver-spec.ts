@@ -1,4 +1,3 @@
-import TYPES from './../../lib/definition/types';
 import ScalarDefinitionResolver from './../../lib/resolver/scalar-definition-resolver';
 
 describe('resolver/scalar-definition-resolver', () => {
@@ -7,7 +6,7 @@ describe('resolver/scalar-definition-resolver', () => {
     beforeEach(() => {
         definition = {
             name: 'foo',
-            type: TYPES.Scalar,
+            type: 'scalar',
             subject: 'foo'
         };
         container = {
@@ -16,7 +15,7 @@ describe('resolver/scalar-definition-resolver', () => {
         };
         badDefinition = {
             name: 'foo',
-            type: TYPES.Factory,
+            type: 'factory',
             subject: () => { return 2; }
         };
         resolver = new ScalarDefinitionResolver();

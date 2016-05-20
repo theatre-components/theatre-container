@@ -1,5 +1,4 @@
 import ContainerInterface from './../../container/container-interface';
-import TYPES from './../../definition/types';
 import CompilationPassInterface from './../../compilation/compilation-pass-interface';
 import DefinitionInterface from './../../definition/definition-interface';
 
@@ -17,7 +16,7 @@ export default function createFactoryRegister(container: ContainerInterface) {
         let definition = <DefinitionInterface<T>>{
             name: name,
             subject: subject,
-            type: TYPES.Factory,
+            type: 'factory',
             inject: inject || [],
             metadata: metadata || {},
             compilationPass: compilationPass || []

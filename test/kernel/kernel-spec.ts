@@ -3,7 +3,6 @@ import CompilationError from './../../lib/error/compilation-error';
 import RegistrationError from './../../lib/error/registration-error';
 import Container from './../../lib/container/container';
 import FrozenContainer from './../../lib/container/frozen-container';
-import TYPES from './../../lib/definition/types';
 
 describe('kernel/kernel', () => {
     let kernel, container;
@@ -16,7 +15,7 @@ describe('kernel/kernel', () => {
     it('can boot a container', () => {
         let boot = false;
 
-        kernel.register((container2) => {
+        kernel.initialize((container2) => {
             expect(container2).toBe(container);
 
             boot = true;
@@ -41,9 +40,42 @@ describe('kernel/kernel', () => {
         expect(() => {
             container.register({
                 name: 'foo',
-                type: TYPES.Scalar,
+                type: 'scalar',
                 subject: 'bar'
             });
         }).toThrowError(RegistrationError);
+    });
+
+    it('can embed an other kernel', () => {
+        let container2 = new Container();
+        container2.register({
+            name: 'foo',
+            type: 'scalar',
+            subject: 'foo-new'
+        });
+        let kernel2 = new Kernel(container2);
+
+        kernel.embed(kernel2);
+
+        expect(kernel.container.get('foo')).toBe('foo-new');
+    });
+
+    it('can registers definitions as raw json object', () => {
+        kernel.registers({
+            "foo": {
+                "type": "scalar",
+                "subject": "foo2"
+            },
+            "bar": {
+                "type": "factory",
+                "subject": (foo: string): string => {
+                    return `Hello ${foo}`;
+                },
+                "inject": ["@foo"]
+            }
+        });
+
+        expect(kernel.container.get('foo')).toBe('foo2');
+        expect(kernel.container.get('bar')).toBe('Hello foo2');
     });
 });

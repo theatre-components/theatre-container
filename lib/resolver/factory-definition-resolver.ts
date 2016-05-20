@@ -1,7 +1,6 @@
 import SupportableDefinitionResolverInterface from './supportable-definition-resolver-interface';
 import DefinitionInterface from './../definition/definition-interface';
 import ContainerInterface from './../container/container-interface';
-import TYPES from './../definition/types';
 
 /**
  * Resolve a factory definition.
@@ -37,6 +36,6 @@ export default class FactoryDefinitionResolver implements SupportableDefinitionR
      */
     supports<T>(definition: DefinitionInterface<T>): boolean
     {
-        return definition.type === TYPES.Factory;
+        return definition.type === 'factory';
     }
 }

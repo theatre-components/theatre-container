@@ -1,5 +1,4 @@
 import DefinitionCollector from './../../../lib/definition/collector/definition-collector';
-import TYPES from './../../../lib/definition/types';
 import RegistrationError from './../../../lib/error/registration-error';
 
 describe('definition/collector/definition-collector', () => {
@@ -12,7 +11,7 @@ describe('definition/collector/definition-collector', () => {
     it('collect and retrieve definitions', () => {
         collector.collect({
             name: 'test',
-            type: TYPES.Scalar,
+            type: 'scalar',
             subject: 'plop'
         });
 
@@ -28,14 +27,14 @@ describe('definition/collector/definition-collector', () => {
     it('can not collect the same named definition more than one', () => {
         collector.collect({
             name: 'test',
-            type: TYPES.Scalar,
+            type: 'scalar',
             subject: 'plop'
         });
 
         expect(() => {
             collector.collect({
                 name: 'test',
-                type: TYPES.Scalar,
+                type: 'scalar',
                 subject: 'plop'
             });
         }).toThrowError(RegistrationError);
@@ -45,7 +44,7 @@ describe('definition/collector/definition-collector', () => {
         expect(collector.exists('test')).toBe(false);
         collector.collect({
             name: 'test',
-            type: TYPES.Scalar,
+            type: 'scalar',
             subject: 'plop'
         });
 
@@ -55,13 +54,13 @@ describe('definition/collector/definition-collector', () => {
     it('can replace an existing definition', () => {
         collector.collect({
             name: 'test',
-            type: TYPES.Scalar,
+            type: 'scalar',
             subject: 'plop'
         });
 
         collector.replace({
             name: 'test',
-            type: TYPES.Scalar,
+            type: 'scalar',
             subject: 'plip'
         });
 
@@ -72,7 +71,7 @@ describe('definition/collector/definition-collector', () => {
         expect(() => {
             collector.replace({
                 name: 'test',
-                type: TYPES.Scalar,
+                type: 'scalar',
                 subject: 'plip'
             });
         }).toThrowError(RegistrationError);
@@ -81,12 +80,12 @@ describe('definition/collector/definition-collector', () => {
     it('can loop on definitions', () => {
         collector.collect({
             name: 'test1',
-            type: TYPES.Scalar,
+            type: 'scalar',
             subject: 'plop1'
         });
         collector.collect({
             name: 'test2',
-            type: TYPES.Scalar,
+            type: 'scalar',
             subject: 'plop2'
         });
 
@@ -103,7 +102,7 @@ describe('definition/collector/definition-collector', () => {
     it('can find definitions by tag name', () => {
         collector.collect({
             name: 'test1',
-            type: TYPES.Scalar,
+            type: 'scalar',
             subject: 'plop1',
             metadata: {
                 "a": true
@@ -111,7 +110,7 @@ describe('definition/collector/definition-collector', () => {
         });
         collector.collect({
             name: 'test2',
-            type: TYPES.Scalar,
+            type: 'scalar',
             subject: 'plop2',
             metadata: {
                 "a": true,

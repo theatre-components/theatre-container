@@ -1,5 +1,4 @@
 import Container from './../../lib/container/container';
-import TYPES from './../../lib/definition/types';
 import CompilationPassInterface from './../../lib/compilation/compilation-pass-interface';
 
 class SimpleHello
@@ -34,7 +33,7 @@ describe('container/container', () => {
         container = new Container();
         definition1 = {
             name: 'hello',
-            type: TYPES.Factory,
+            type: 'factory',
             subject: (foo) => { return `Hello ${foo}`; },
             inject: ['@foo'],
             metadata: {
@@ -43,7 +42,7 @@ describe('container/container', () => {
         };
         definition2 = {
             name: 'foo',
-            type: TYPES.Scalar,
+            type: 'scalar',
             subject: 'foo',
             metadata: {
                 "b": true
@@ -51,7 +50,7 @@ describe('container/container', () => {
         };
         definition3 = {
             name: 'bar',
-            type: TYPES.Service,
+            type: 'service',
             subject: SimpleHello,
             inject: ['@hello'],
             metadata: {
@@ -84,5 +83,24 @@ describe('container/container', () => {
 
         expect(beforeCompilation).toBe(true);
         expect(afterCompilation).toBe(true);
+    });
+
+    it('can embed a second container', () => {
+        let container2 = new Container();
+        container2.register({
+            name: 'baz',
+            type: 'scalar',
+            subject: 'baz'
+        });
+        container2.register({
+            name: 'foo',
+            type: 'scalar',
+            subject: 'foo2'
+        });
+
+        container.embed(container2);
+
+        expect(container.get('baz')).toBe('baz');
+        expect(container.get('foo')).toBe('foo2');
     });
 });

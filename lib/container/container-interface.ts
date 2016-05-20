@@ -24,6 +24,11 @@ interface ContainerInterface
      * Test if this member is present in the container.
      */
     has(name: string): boolean;
+
+    /**
+     * Embed an other container inside this one.
+     */
+    embed(container: ContainerInterface): ContainerInterface;
 }
 
 export default ContainerInterface;

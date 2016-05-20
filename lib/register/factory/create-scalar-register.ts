@@ -1,5 +1,4 @@
 import ContainerInterface from './../../container/container-interface';
-import TYPES from './../../definition/types';
 import CompilationPassInterface from './../../compilation/compilation-pass-interface';
 import DefinitionInterface from './../../definition/definition-interface';
 
@@ -16,7 +15,7 @@ export default function createScalarRegister(container: ContainerInterface) {
         let definition = <DefinitionInterface<T>>{
             name: name,
             subject: subject,
-            type: TYPES.Scalar,
+            type: 'scalar',
             metadata: metadata || {},
             compilationPass: compilationPass || []
         };

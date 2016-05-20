@@ -1,6 +1,5 @@
 import ContainerInterface from './../../container/container-interface';
 import DefinitionInterface from './../../definition/definition-interface';
-import TYPES from './../../definition/types';
 
 /**
  * Create a default service decorator function.
@@ -10,7 +9,7 @@ export default function createServiceDecorator(container: ContainerInterface) {
         return (target: Function) => {
             container.register({
                 name: name,
-                type: TYPES.Service,
+                type: 'service',
                 subject: target
             });
 

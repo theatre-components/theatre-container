@@ -53,6 +53,18 @@ export default class FrozenContainer implements FrozenContainerInterface
     /**
      * {@inheritdoc}
      */
+    embed(container: ContainerInterface): ContainerInterface
+    {
+        if (true === this.frozen) {
+            throw new RegistrationError('You can\'t embed a container into a frozen container.');
+        }
+
+        return this.container.embed(container);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     froze(): void
     {
         this.frozen = true;

@@ -1,5 +1,4 @@
 import AggregableResolver from './../../lib/resolver/aggregable-resolver';
-import TYPES from './../../lib/definition/types';
 
 describe('resolver/aggregable-resolver', () => {
     let container, definition;
@@ -12,7 +11,7 @@ describe('resolver/aggregable-resolver', () => {
 
         definition =  {
             name: 'foo',
-            type: TYPES.Scalar,
+            type: 'scalar',
             subject: 'foo'
         };
     });

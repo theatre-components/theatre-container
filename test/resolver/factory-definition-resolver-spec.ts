@@ -1,4 +1,3 @@
-import TYPES from './../../lib/definition/types';
 import FactoryDefinitionResolver from './../../lib/resolver/factory-definition-resolver';
 
 describe('resolver/factory-definition-resolver', () => {
@@ -11,13 +10,13 @@ describe('resolver/factory-definition-resolver', () => {
         };
         definition = {
             name: 'foo',
-            type: TYPES.Factory,
+            type: 'factory',
             subject: (a, b, c) => { return `Resolved ${a} ${b} ${c}`; },
             inject: [12, 'bar', '@bar']
         };
         badDefinition = {
             name: 'baz',
-            type: TYPES.Scalar,
+            type: 'scalar',
             subject: 'Doe'
         };
 

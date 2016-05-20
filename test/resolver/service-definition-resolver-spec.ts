@@ -1,4 +1,3 @@
-import TYPES from './../../lib/definition/types';
 import ServiceDefinitionResolver from './../../lib/resolver/service-definition-resolver';
 
 class Test
@@ -21,13 +20,13 @@ describe('resolver/service-definition-resolver', () => {
         };
         definition = {
             name: 'good_service',
-            type: TYPES.Service,
+            type: 'service',
             subject: Test,
             inject: [12, 'test', '@foo']
         };
         badDefinition = {
             name: 'bad',
-            type: TYPES.Scalar,
+            type: 'scalar',
             subject: 'foo'
         };
         resolver = new ServiceDefinitionResolver();
