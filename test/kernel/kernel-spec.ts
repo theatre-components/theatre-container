@@ -3,6 +3,7 @@ import CompilationError from './../../lib/error/compilation-error';
 import RegistrationError from './../../lib/error/registration-error';
 import Container from './../../lib/container/container';
 import FrozenContainer from './../../lib/container/frozen-container';
+import Annotation from './../../lib/annotation/annotation';
 
 describe('kernel/kernel', () => {
     let kernel, container;
@@ -77,5 +78,9 @@ describe('kernel/kernel', () => {
 
         expect(kernel.container.get('foo')).toBe('foo2');
         expect(kernel.container.get('bar')).toBe('Hello foo2');
+    });
+
+    it('contains annotations', () => {
+        expect(kernel.annotations instanceof Annotation).toBe(true);
     });
 });

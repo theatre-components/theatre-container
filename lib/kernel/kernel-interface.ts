@@ -1,6 +1,7 @@
 import ContainerInterface from './../container/container-interface';
 import BootInterface from './boot-interface';
 import ChainedDefinitionInterface from './../definition/chained-definition-interface';
+import AnnotationInterface from './../annotation/annotation-interface';
 
 /**
  * A kernel is a simple container boot. It allows you to launch initial
@@ -9,6 +10,8 @@ import ChainedDefinitionInterface from './../definition/chained-definition-inter
 interface KernelInterface
 {
     container: ContainerInterface;
+
+    annotations: AnnotationInterface;
 
     /**
      * Register a new boot.

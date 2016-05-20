@@ -4,6 +4,8 @@ import CompilationError from './../error/compilation-error';
 import BootInterface from './boot-interface';
 import ChainedDefinitionInterface from './../definition/chained-definition-interface';
 import DefinitionInterface from './../definition/definition-interface';
+import AnnotationInterface from './../annotation/annotation-interface';
+import Annotation from './../annotation/annotation';
 
 /**
  * A default kernel implementation.
@@ -14,10 +16,14 @@ export default class Kernel implements KernelInterface
 
     private booted: boolean;
 
+    private annotationRegistry: AnnotationInterface;
+
     constructor(private storedContainer: ContainerInterface)
     {
         this.boots = [];
         this.booted = false;
+
+        this.annotationRegistry = new Annotation(storedContainer);
     }
 
     /**
@@ -84,5 +90,10 @@ export default class Kernel implements KernelInterface
     get container(): ContainerInterface
     {
         return this.storedContainer;
+    }
+
+    get annotations(): AnnotationInterface
+    {
+        return this.annotationRegistry;
     }
 }
