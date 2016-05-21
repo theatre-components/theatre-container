@@ -12,10 +12,10 @@ describe('definition/collector/definition-collector', () => {
         collector.collect({
             name: 'test',
             type: 'scalar',
-            subject: 'plop'
+            value: 'plop'
         });
 
-        expect(collector.retrieve('test').subject).toBe('plop');
+        expect(collector.retrieve('test').value).toBe('plop');
     });
 
     it('can not retrieve unregistered definitions', () => {
@@ -28,14 +28,14 @@ describe('definition/collector/definition-collector', () => {
         collector.collect({
             name: 'test',
             type: 'scalar',
-            subject: 'plop'
+            value: 'plop'
         });
 
         expect(() => {
             collector.collect({
                 name: 'test',
                 type: 'scalar',
-                subject: 'plop'
+                value: 'plop'
             });
         }).toThrowError(RegistrationError);
     });
@@ -45,7 +45,7 @@ describe('definition/collector/definition-collector', () => {
         collector.collect({
             name: 'test',
             type: 'scalar',
-            subject: 'plop'
+            value: 'plop'
         });
 
         expect(collector.exists('test')).toBe(true);
@@ -55,16 +55,16 @@ describe('definition/collector/definition-collector', () => {
         collector.collect({
             name: 'test',
             type: 'scalar',
-            subject: 'plop'
+            value: 'plop'
         });
 
         collector.replace({
             name: 'test',
             type: 'scalar',
-            subject: 'plip'
+            value: 'plip'
         });
 
-        expect(collector.retrieve('test').subject).toBe('plip');
+        expect(collector.retrieve('test').value).toBe('plip');
     });
 
     it('can not replace an unexistent definition', () => {
@@ -72,7 +72,7 @@ describe('definition/collector/definition-collector', () => {
             collector.replace({
                 name: 'test',
                 type: 'scalar',
-                subject: 'plip'
+                value: 'plip'
             });
         }).toThrowError(RegistrationError);
     });
@@ -81,12 +81,12 @@ describe('definition/collector/definition-collector', () => {
         collector.collect({
             name: 'test1',
             type: 'scalar',
-            subject: 'plop1'
+            value: 'plop1'
         });
         collector.collect({
             name: 'test2',
             type: 'scalar',
-            subject: 'plop2'
+            value: 'plop2'
         });
 
         let collection = {};
@@ -103,7 +103,7 @@ describe('definition/collector/definition-collector', () => {
         collector.collect({
             name: 'test1',
             type: 'scalar',
-            subject: 'plop1',
+            value: 'plop1',
             metadata: {
                 "a": true
             },
@@ -111,7 +111,7 @@ describe('definition/collector/definition-collector', () => {
         collector.collect({
             name: 'test2',
             type: 'scalar',
-            subject: 'plop2',
+            value: 'plop2',
             metadata: {
                 "a": true,
                 "b": true

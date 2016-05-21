@@ -16,7 +16,7 @@ interface CompilationPassInterface<T>
      * This one «Hook» a given resolved members just after the definition has
      * been resolved.
      */
-    afterCompilation?(subject: T, container: ContainerInterface): void;
+    afterCompilation?(value: T, container: ContainerInterface): void;
 }
 
 export default CompilationPassInterface;

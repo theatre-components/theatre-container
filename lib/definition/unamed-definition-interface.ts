@@ -16,7 +16,7 @@ interface UnamedDefinitionInterface<T>
      * This is the value / function or class that will be resolved into
      * the container.
      */
-    subject: T;
+    value: T;
 
     /**
      * Defines here the members you want to inject.

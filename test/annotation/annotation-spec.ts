@@ -20,7 +20,7 @@ describe('annotation/annotation', () => {
         container.register({
             name: 'foo',
             type: 'scalar',
-            subject: 'foo'
+            value: 'foo'
         });
 
         annotation = new Annotation(container);

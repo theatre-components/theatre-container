@@ -21,13 +21,13 @@ describe('resolver/service-definition-resolver', () => {
         definition = {
             name: 'good_service',
             type: 'service',
-            subject: Test,
+            value: Test,
             inject: [12, 'test', '@foo']
         };
         badDefinition = {
             name: 'bad',
             type: 'scalar',
-            subject: 'foo'
+            value: 'foo'
         };
         resolver = new ServiceDefinitionResolver();
     });

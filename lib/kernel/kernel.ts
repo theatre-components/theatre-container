@@ -1,5 +1,7 @@
 import KernelInterface from './kernel-interface';
 import ContainerInterface from './../container/container-interface';
+import FrozenContainer from './../container/frozen-container';
+import Container from './../container/container';
 import CompilationError from './../error/compilation-error';
 import BootInterface from './boot-interface';
 import ChainedDefinitionInterface from './../definition/chained-definition-interface';
@@ -17,6 +19,16 @@ export default class Kernel implements KernelInterface
     private booted: boolean;
 
     private annotationRegistry: AnnotationInterface;
+
+    /**
+     * Create a default kernel with a brand new FrozenContainer
+     */
+    static create(): Kernel
+    {
+        let container = new Container();
+
+        return new Kernel(new FrozenContainer(container));
+    }
 
     constructor(private storedContainer: ContainerInterface)
     {
@@ -59,9 +71,9 @@ export default class Kernel implements KernelInterface
     /**
      * {@inheritdoc}
      */
-    embed(kernel: KernelInterface): KernelInterface
+    embed(kernel: KernelInterface, alias?: string): KernelInterface
     {
-        this.storedContainer.embed(kernel.container);
+        this.storedContainer.embed(kernel.container, alias);
 
         return this;
     }
@@ -69,13 +81,13 @@ export default class Kernel implements KernelInterface
     /**
      * {@inheritDoc}
      */
-    registers<T>(definitions: ChainedDefinitionInterface<T>): KernelInterface
+    register<T>(definitions: ChainedDefinitionInterface<T>): KernelInterface
     {
         for (let name in definitions) {
             let definition: DefinitionInterface<T> = {
                 'name': name,
                 'type': definitions[name].type,
-                'subject': definitions[name].subject,
+                'value': definitions[name].value,
                 'inject': definitions[name].inject,
                 'metadata': definitions[name].metadata,
                 'compilationPass': definitions[name].compilationPass

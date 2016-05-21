@@ -11,13 +11,13 @@ describe('resolver/factory-definition-resolver', () => {
         definition = {
             name: 'foo',
             type: 'factory',
-            subject: (a, b, c) => { return `Resolved ${a} ${b} ${c}`; },
+            value: (a, b, c) => { return `Resolved ${a} ${b} ${c}`; },
             inject: [12, 'bar', '@bar']
         };
         badDefinition = {
             name: 'baz',
             type: 'scalar',
-            subject: 'Doe'
+            value: 'Doe'
         };
 
         resolver = new FactoryDefinitionResolver();

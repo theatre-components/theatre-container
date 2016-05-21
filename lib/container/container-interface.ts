@@ -28,7 +28,7 @@ interface ContainerInterface
     /**
      * Embed an other container inside this one.
      */
-    embed(container: ContainerInterface): ContainerInterface;
+    embed(container: ContainerInterface, alias?: string): ContainerInterface;
 }
 
 export default ContainerInterface;

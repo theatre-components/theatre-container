@@ -12,7 +12,7 @@ describe('resolver/aggregable-resolver', () => {
         definition =  {
             name: 'foo',
             type: 'scalar',
-            subject: 'foo'
+            value: 'foo'
         };
     });
 

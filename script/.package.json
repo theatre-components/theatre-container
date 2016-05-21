@@ -6,7 +6,8 @@
   "keywords": {{& package.keywords }},
   "author": {{& package.author }},
   "license": "{{ package.license }}",
-  "main": "main.js",
-  "jsnext:main": "main.js",
+  "main": "application.js",
+  "jsnext:main": "application.js",
+  "typings": "application.d.ts",
   "repository": {{& package.repository }}
 }

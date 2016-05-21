@@ -20,7 +20,7 @@ class CustomCompilerPass<T> implements CompilationPassInterface<T>
         beforeCompilation = true;
     }
 
-    afterCompilation(subject, container)
+    afterCompilation(value, container)
     {
         afterCompilation = true;
     }
@@ -34,7 +34,7 @@ describe('container/container', () => {
         definition1 = {
             name: 'hello',
             type: 'factory',
-            subject: (foo) => { return `Hello ${foo}`; },
+            value: (foo) => { return `Hello ${foo}`; },
             inject: ['@foo'],
             metadata: {
                 "a": true
@@ -43,7 +43,7 @@ describe('container/container', () => {
         definition2 = {
             name: 'foo',
             type: 'scalar',
-            subject: 'foo',
+            value: 'foo',
             metadata: {
                 "b": true
             }
@@ -51,7 +51,7 @@ describe('container/container', () => {
         definition3 = {
             name: 'bar',
             type: 'service',
-            subject: SimpleHello,
+            value: SimpleHello,
             inject: ['@hello'],
             metadata: {
                 "a": true,
@@ -90,16 +90,19 @@ describe('container/container', () => {
         container2.register({
             name: 'baz',
             type: 'scalar',
-            subject: 'baz'
+            value: 'baz'
         });
         container2.register({
             name: 'foo',
             type: 'scalar',
-            subject: 'foo2'
+            value: 'foo2'
         });
 
         container.embed(container2);
+        container.embed(container2, 'test');
 
+        expect(container.get('test.baz')).toBe('baz');
+        expect(container.get('test.foo')).toBe('foo2');
         expect(container.get('baz')).toBe('baz');
         expect(container.get('foo')).toBe('foo2');
     });

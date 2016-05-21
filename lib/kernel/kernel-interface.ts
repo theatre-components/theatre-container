@@ -26,12 +26,12 @@ interface KernelInterface
     /**
      * Embed an other kernel inside.
      */
-    embed(kernel: KernelInterface): KernelInterface;
+    embed(kernel: KernelInterface, alias?: string): KernelInterface;
 
     /**
      * Register definitions as a simple JSON object.
      */
-    registers<T>(definitions: ChainedDefinitionInterface<T>): KernelInterface;
+    register<T>(definitions: ChainedDefinitionInterface<T>): KernelInterface;
 }
 
 export default KernelInterface;

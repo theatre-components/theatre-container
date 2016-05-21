@@ -42,7 +42,7 @@ describe('kernel/kernel', () => {
             container.register({
                 name: 'foo',
                 type: 'scalar',
-                subject: 'bar'
+                value: 'bar'
             });
         }).toThrowError(RegistrationError);
     });
@@ -52,24 +52,26 @@ describe('kernel/kernel', () => {
         container2.register({
             name: 'foo',
             type: 'scalar',
-            subject: 'foo-new'
+            value: 'foo-new'
         });
         let kernel2 = new Kernel(container2);
 
         kernel.embed(kernel2);
+        kernel.embed(kernel2, 'test');
 
         expect(kernel.container.get('foo')).toBe('foo-new');
+        expect(kernel.container.get('test.foo')).toBe('foo-new');
     });
 
-    it('can registers definitions as raw json object', () => {
-        kernel.registers({
+    it('can register definitions as raw json object', () => {
+        kernel.register({
             "foo": {
                 "type": "scalar",
-                "subject": "foo2"
+                "value": "foo2"
             },
             "bar": {
                 "type": "factory",
-                "subject": (foo: string): string => {
+                "value": (foo: string): string => {
                     return `Hello ${foo}`;
                 },
                 "inject": ["@foo"]
@@ -82,5 +84,12 @@ describe('kernel/kernel', () => {
 
     it('contains annotations', () => {
         expect(kernel.annotations instanceof Annotation).toBe(true);
+    });
+
+    it('can create a default instance', () => {
+        let newKernel = Kernel.create();
+
+        expect(newKernel instanceof Kernel).toBe(true);
+        expect(newKernel.container instanceof FrozenContainer).toBe(true);
     });
 });

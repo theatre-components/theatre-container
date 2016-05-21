@@ -12,7 +12,7 @@ export default class ScalarDefinitionResolver implements SupportableDefinitionRe
      */
     resolve<T>(definition: DefinitionInterface<T>, container: ContainerInterface): T
     {
-        return definition.subject;
+        return definition.value;
     }
 
     /**

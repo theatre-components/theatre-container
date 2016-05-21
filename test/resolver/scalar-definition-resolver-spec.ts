@@ -7,7 +7,7 @@ describe('resolver/scalar-definition-resolver', () => {
         definition = {
             name: 'foo',
             type: 'scalar',
-            subject: 'foo'
+            value: 'foo'
         };
         container = {
             register: (definition) => { return this; },
@@ -16,7 +16,7 @@ describe('resolver/scalar-definition-resolver', () => {
         badDefinition = {
             name: 'foo',
             type: 'factory',
-            subject: () => { return 2; }
+            value: () => { return 2; }
         };
         resolver = new ScalarDefinitionResolver();
     });

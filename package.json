@@ -1,6 +1,6 @@
 {
   "name": "theatre-container-src",
-  "version": "3.1.1",
+  "version": "4.0.0",
   "description": "A simple and extensible dependency injection tool",
   "scripts": {
     "test": "karma start --single-run",
@@ -8,9 +8,9 @@
     "start": "concurrently \"./node_modules/.bin/tsc -w\" \"./node_modules/.bin/karma start\"",
     "watch": "tsc -w --pretty",
     "clean-dist": "node script/clean.js --path \"dist\"",
-    "build-systemjs": "tsc --declaration --outDir \"dist/systemjs\" && node script/create-package.js -o dist/systemjs/lib -p systemjs --default",
+    "build-systemjs": "tsc --declaration --outDir \"dist/systemjs\" && node script/create-package.js -o dist/systemjs/lib -p systemjs",
     "build-es2015": "tsc --declaration --module es2015 --outDir \"dist/es2015\" --target ES2015 && node script/create-package.js -o dist/es2015/lib -p es6",
-    "build-commonjs": "tsc --declaration --module commonjs --outDir \"dist/commonjs\" && node script/create-package.js -o dist/commonjs/lib -p commonjs",
+    "build-commonjs": "tsc --declaration --module commonjs --outDir \"dist/commonjs\" && node script/create-package.js -o dist/commonjs/lib -p commonjs --default",
     "build-all": "npm run clean-dist && npm run build-systemjs && npm run build-es2015 && npm run build-commonjs && npm run build",
     "build": "tsc --pretty",
     "prepublish": "npm run build-all",

@@ -26,7 +26,7 @@ export default class Annotation implements AnnotationInterface
             let definition: DefinitionInterface<T> = {
                 name: name,
                 type: 'service',
-                subject: target,
+                value: target,
                 inject: inject,
                 metadata: metadata,
                 compilationPass: compilationPass

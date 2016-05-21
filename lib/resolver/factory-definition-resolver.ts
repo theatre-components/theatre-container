@@ -13,7 +13,7 @@ export default class FactoryDefinitionResolver implements SupportableDefinitionR
     resolve<T extends Function>(definition: DefinitionInterface<T>, container: ContainerInterface): T
     {
         if (!definition.inject) {
-            return definition.subject.apply({}, []);
+            return definition.value.apply({}, []);
         }
 
         let args = [];
@@ -28,7 +28,7 @@ export default class FactoryDefinitionResolver implements SupportableDefinitionR
             args.push(container.get(injection.substr(1)));
         }
 
-        return definition.subject.apply({}, args);
+        return definition.value.apply({}, args);
     }
 
     /**

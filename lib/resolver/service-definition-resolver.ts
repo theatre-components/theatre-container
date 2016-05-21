@@ -13,7 +13,7 @@ export default class ServiceDefinitionResolver implements SupportableDefinitionR
     resolve<T extends Function>(definition: DefinitionInterface<T>, container: ContainerInterface): T
     {
         if (!definition.inject) {
-            return new (Function.prototype.bind.apply(definition.subject, [null]));
+            return new (Function.prototype.bind.apply(definition.value, [null]));
         }
 
         let args = [];
@@ -28,7 +28,7 @@ export default class ServiceDefinitionResolver implements SupportableDefinitionR
             args.push(container.get(injection.substr(1)));
         }
 
-        return new (Function.prototype.bind.apply(definition.subject, [null].concat(args)));
+        return new (Function.prototype.bind.apply(definition.value, [null].concat(args)));
     }
 
     /**
